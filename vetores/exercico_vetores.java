@@ -2,37 +2,30 @@ package vetores;
 
 import java.util.Scanner;
 
-public class exercico_vetores {
+public class ExercicoVetores {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int[] number = new int[10];
+        
+        scanner = new Scanner(System.in);
+        int numeros[] ={10, 11, 29, 25, 17, 24, 13, 3, 29, 46};
+        int posicao;
+        int numeroProcurado;
 
-        // 1. Preenchendo o vetor com números
-        System.out.println("Digite 10 números inteiros:");
-        for (int i = 0; i < number.length; i++) {
-            System.out.print("Número " + (i + 1) + ": ");
-            number[i] = scanner.nextInt();
-        }
-
-        // 2. Pedindo ao usuário um número para pesquisar
-        System.out.print("Digite um número para pesquisar no vetor: ");
-        int numeroPesquisado = scanner.nextInt();
-
-        // 3. Pesquisando o número no vetor
-        boolean encontrado = false;
-        for (int i = 0; i < number.length; i++) {
-            if (number[i] == numeroPesquisado) {
-                System.out.println("O número " + numeroPesquisado + " foi encontrado na posição: " + i);
-                encontrado = true;
-                break; // Para o loop assim que encontra
+        System.out.print("Digite o número que deseja encontrar: ");
+        numeroProcurado = scanner.nextInt();
+        
+        for (i = 0; i < numeros.length; i++) {
+            if (numeros[i] == numeroProcurado) {
+                posicao = i;
+                break;
             }
         }
 
-        // 4. Mensagem caso não seja encontrado
-        if (!encontrado) {
+        if (posicao != -1) {
+            System.out.println("O número " + numeroProcurado + " está localizado na posição " + posicao + " do vetor.");
+        } else {
             System.out.println("Não foi encontrado!");
         }
 
-        scanner.close(); // Fecha o scanner
+        scanner.close();
     }
 }
